@@ -124,11 +124,27 @@ export default function Home() {
             <a className="text-link" href="/about">HPHの理念を見る <Arrow /></a>
           </div>
         </div>
+        <div className="values-heading reveal">
+          <span>HPH VALUE</span>
+          <h3>HPHが大切にする <em>4つ</em> の価値観</h3>
+        </div>
         <div className="values reveal">
-          <article><strong>01</strong><div><span>GRATITUDE</span><h3>感謝</h3><p>人との繋がりへの感謝を忘れない。</p></div></article>
-          <article><strong>02</strong><div><span>PROFESSIONAL</span><h3>プロ意識</h3><p>誇りと責任を持って仕事に向き合う。</p></div></article>
-          <article><strong>03</strong><div><span>SOLUTION</span><h3>課題解決</h3><p>目の前の課題をより良くする。</p></div></article>
-          <article><strong>04</strong><div><span>CHALLENGE</span><h3>挑戦</h3><p>価値提供のために挑戦し続ける。</p></div></article>
+          <article>
+            <strong>01</strong>
+            <div><span>GRATITUDE</span><h3>感謝</h3><p>人とのつながりへの感謝を忘れず、相手の立場に立って誠実な行動を積み重ねます。</p><p className="value-accent">利用者様・ご家族・地域・仲間への感謝を大切にします。</p></div>
+          </article>
+          <article>
+            <strong>02</strong>
+            <div><span>PROFESSIONAL</span><h3>プロ意識</h3><p>誇りと責任を持ち、専門職として学び続け、安心して任せていただける存在を目指します。</p><p className="value-accent">常に学び続け、質の高いサービスを追求します。</p></div>
+          </article>
+          <article>
+            <strong>03</strong>
+            <div><span>SOLUTION</span><h3>課題解決</h3><p>目の前の課題だけでなく原因を考え、より良い方法を提案・実践し、解決へと導きます。</p><p className="value-accent">「できない理由」ではなく、「どうすればできるか」を考えます。</p></div>
+          </article>
+          <article>
+            <strong>04</strong>
+            <div><span>CHALLENGE</span><h3>挑戦</h3><p>現状に満足せず、新しい価値を創造するために挑戦を続け、未来を切り拓きます。</p><p className="value-accent">変化を恐れず、より良い未来のために挑戦し続けます。</p></div>
+          </article>
         </div>
         <div className="care-detail reveal">
           <img src="/hph-support.jpg" alt="利用者様の手を取って寄り添うHPHスタッフ" />
