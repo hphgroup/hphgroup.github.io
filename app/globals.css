@@ -350,7 +350,7 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
   .values-heading { margin:0 0 18px; gap:10px; justify-content:center; }
   .values-heading::after { max-width:38px; }
   .values-heading h3 { white-space:nowrap; font-size:14px; letter-spacing:0; }
-  .values-heading em { font-size:24px; margin:0 2px; letter-spacing:-.06em; }
+  .values-heading em { font-size:24px; margin:0 2px; letter-spacing:-.04em; font-weight:600; }
   .values { grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:200px; gap:10px; padding:0; align-items:stretch; }
   .values article { box-sizing:border-box; min-width:0; height:200px; padding:18px 15px 15px; min-height:0; border-radius:14px; }
   .values article::after { width:78px; height:78px; border-width:14px; right:-44px; top:-44px; }
@@ -368,6 +368,7 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
   }
   .hero-image::after { background:linear-gradient(90deg,rgba(255,255,255,.24),transparent 38%); }
   .hero-image img { object-position:50% 44%; }
+  .hero-image img { animation:mobilePhotoMove 9s ease-in-out infinite alternate; }
   .hero-copy { left:24px; right:18px; top:255px; transform:none; }
   .hero h1 { font-size:clamp(39px,11vw,43px); line-height:1.12; letter-spacing:-.06em; margin:18px 0 24px; }
   .hero h1 .line-mask { white-space:nowrap; }
@@ -384,6 +385,15 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
   .hero-buttons a { padding:13px 14px; gap:12px; }
   .hero-side { top:38%; }
   .scroll { bottom:18px; }
+  .scroll { animation:mobileScrollCue 2.2s ease-in-out infinite; }
+  .shape-a { animation-duration:11s; }
+  .shape-b { animation-duration:14s; }
+  .marquee div { animation-duration:18s; }
+  .values article { animation:mobileCardFloat 4.2s ease-in-out infinite; }
+  .values article:nth-child(2) { animation-delay:-1.1s; }
+  .values article:nth-child(3) { animation-delay:-2.2s; }
+  .values article:nth-child(4) { animation-delay:-3.3s; }
+  .values article::after { animation:mobileOrbitPulse 3.6s ease-in-out infinite; }
   .statement h2, .business h2, .recruit h2, .company h2 {
     font-size:32px;
     line-height:1.42;
@@ -407,6 +417,11 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
   .contact a span:first-child { font-size:9.2vw; }
   .footer-bottom { flex-direction:column; }
 }
+
+@keyframes mobilePhotoMove { from { transform:scale(1.02) translateX(-1%); } to { transform:scale(1.1) translateX(1%); } }
+@keyframes mobileCardFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+@keyframes mobileOrbitPulse { 0%,100% { transform:scale(1) rotate(0); opacity:.75; } 50% { transform:scale(1.16) rotate(18deg); opacity:1; } }
+@keyframes mobileScrollCue { 0%,100% { transform:translateY(0); opacity:.65; } 50% { transform:translateY(7px); opacity:1; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior:auto; }
