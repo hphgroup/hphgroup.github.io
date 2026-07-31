@@ -36,7 +36,7 @@ export default function Home() {
     <main>
       <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
         <a href="#top" className="brand" aria-label="株式会社HPH トップへ" onClick={closeMenu}>
-          <img src="/hph-logo.jpg" alt="株式会社HPH" />
+          <img src="/hph-logo-transparent.png" alt="株式会社HPH" />
         </a>
         <nav className="desktop-nav" aria-label="メインナビゲーション">
           <a href="/about">私たちについて</a>
@@ -125,10 +125,10 @@ export default function Home() {
           </div>
         </div>
         <div className="values reveal">
-          <article><strong>感</strong><div><span>GRATITUDE</span><h3>感謝</h3><p>人との繋がりへの感謝を忘れない。</p></div></article>
-          <article><strong>誇</strong><div><span>PROFESSIONAL</span><h3>プロ意識</h3><p>誇りと責任を持って仕事に向き合う。</p></div></article>
-          <article><strong>解</strong><div><span>SOLUTION</span><h3>課題解決</h3><p>目の前の課題をより良くする。</p></div></article>
-          <article><strong>挑</strong><div><span>CHALLENGE</span><h3>挑戦</h3><p>価値提供のために挑戦し続ける。</p></div></article>
+          <article><strong>01</strong><div><span>GRATITUDE</span><h3>感謝</h3><p>人との繋がりへの感謝を忘れない。</p></div></article>
+          <article><strong>02</strong><div><span>PROFESSIONAL</span><h3>プロ意識</h3><p>誇りと責任を持って仕事に向き合う。</p></div></article>
+          <article><strong>03</strong><div><span>SOLUTION</span><h3>課題解決</h3><p>目の前の課題をより良くする。</p></div></article>
+          <article><strong>04</strong><div><span>CHALLENGE</span><h3>挑戦</h3><p>価値提供のために挑戦し続ける。</p></div></article>
         </div>
         <div className="care-detail reveal">
           <img src="/hph-support.jpg" alt="利用者様の手を取って寄り添うHPHスタッフ" />
@@ -213,7 +213,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-logo"><img src="/hph-logo.jpg" alt="株式会社HPH" /></div>
+        <div className="footer-logo"><img src="/hph-logo-transparent.png" alt="株式会社HPH" /></div>
         <p>〒655-0012 兵庫県神戸市垂水区向陽2丁目6-18<br />向陽センタービル103</p>
         <div className="footer-links">
           <a href="/about">私たちについて</a>

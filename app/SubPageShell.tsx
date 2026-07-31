@@ -12,7 +12,7 @@ export default function SubPageShell({ number, english, title, lead, children }:
   return (
     <main className="subpage">
       <header className="sub-header">
-        <a href="/" className="sub-brand"><img src="/hph-logo.jpg" alt="株式会社HPH" /></a>
+        <a href="/" className="sub-brand"><img src="/hph-logo-transparent.png" alt="株式会社HPH" /></a>
         <nav>
           <a href="/about">HPHについて</a>
           <a href="/business">事業紹介</a>
@@ -37,7 +37,7 @@ export default function SubPageShell({ number, english, title, lead, children }:
         </div>
       </section>
       <footer className="sub-footer">
-        <img src="/hph-logo.jpg" alt="株式会社HPH" />
+        <img src="/hph-logo-transparent.png" alt="株式会社HPH" />
         <p>〒655-0012 兵庫県神戸市垂水区向陽2丁目6-18 向陽センタービル103</p>
         <small>© 2026 HPH Inc.</small>
       </footer>
