@@ -12,6 +12,7 @@ export default function AboutPage() {
           <p>その感謝を忘れず、一つひとつの仕事に向き合う。そして、期待を超える価値を届け、感動を生み出す。それがHPHの使命です。</p>
         </div>
       </section>
+      <div className="sub-photo-wide"><img src="/hph-support.jpg" alt="利用者様の手を取って寄り添うHPHスタッフ" /></div>
       <section className="mv-grid">
         <article><span>MISSION</span><h2>感謝を込めて、<br />感動を届ける。</h2><p>関わるすべての人に価値を届け、「この会社に頼んで良かった」「この人に出会えて良かった」と思っていただける仕事をします。</p></article>
         <article><span>VISION</span><h2>感動を作り与える<br />プロ集団へ。</h2><p>どのスタッフが関わっても、安心していただけるサービスを提供できる組織へ。地域から信頼され続ける会社を目指します。</p></article>

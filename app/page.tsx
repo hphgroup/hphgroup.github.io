@@ -78,7 +78,7 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-image">
-          <img src="/care-team.jpg" alt="ケアスタッフと利用者の笑顔" />
+          <img src="/hph-team.jpg" alt="屋外で対話するHPHスタッフ" />
         </div>
         <div className="hero-shape shape-a" />
         <div className="hero-shape shape-b" />
@@ -130,6 +130,10 @@ export default function Home() {
           <article><strong>解</strong><div><span>SOLUTION</span><h3>課題解決</h3><p>目の前の課題をより良くする。</p></div></article>
           <article><strong>挑</strong><div><span>CHALLENGE</span><h3>挑戦</h3><p>価値提供のために挑戦し続ける。</p></div></article>
         </div>
+        <div className="care-detail reveal">
+          <img src="/hph-support.jpg" alt="利用者様の手を取って寄り添うHPHスタッフ" />
+          <p><span>CARE IN EVERY MOMENT</span>一つひとつの関わりに、安心と温かさを。</p>
+        </div>
       </section>
 
       <section className="business" id="business">
@@ -140,7 +144,7 @@ export default function Home() {
         </div>
         <article className="business-card business-card-photo reveal">
           <div className="business-photo">
-            <img src="/massage-care.jpg" alt="高齢者へのマッサージ施術イメージ" />
+            <img src="/hph-acupuncture.jpg" alt="利用者様への訪問鍼灸施術" />
           </div>
           <div className="business-copy">
             <span className="business-number">01</span>
@@ -172,7 +176,7 @@ export default function Home() {
 
       <section className="recruit" id="recruit">
         <div className="recruit-image reveal">
-          <img src="/care-team.jpg" alt="利用者と笑顔で接するケアスタッフ" />
+          <img src="/hph-therapist.jpg" alt="利用者様に向き合うHPHスタッフ" />
         </div>
         <div className="recruit-copy reveal">
           <p className="section-label"><span>03</span> RECRUIT</p>
@@ -219,7 +223,7 @@ export default function Home() {
           <a href="#company">会社概要</a>
         </div>
         <div className="footer-bottom">
-          <span>掲載写真はイメージです。</span>
+          <span>HPHの実際の施術・スタッフ写真を掲載しています。</span>
           <small>© 2026 HPH Inc.</small>
         </div>
       </footer>

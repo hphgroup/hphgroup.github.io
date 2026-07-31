@@ -6,7 +6,7 @@ export default function RecruitPage() {
   return (
     <SubPageShell number="04" english="RECRUIT" title="共に、地域へ価値を。" lead="一人ひとりの成長が組織の力となり、地域への価値提供につながります。">
       <section className="recruit-message">
-        <div><img src="/care-team.jpg" alt="利用者と接するケアスタッフ" /></div>
+        <div><img src="/hph-team.jpg" alt="屋外で話し合うHPHスタッフ" /></div>
         <section><p className="sub-kicker">MESSAGE</p><h2>未来のHPHを、<br />一緒につくりたい。</h2><p>「誰かの役に立ちたい」「専門職として成長したい」「理念に共感できる仲間と働きたい」。そんな想いを持った方と一緒に、未来のHPHを作っていきたいと考えています。</p></section>
       </section>
       <section className="people">

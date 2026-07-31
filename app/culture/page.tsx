@@ -19,6 +19,7 @@ export default function CulturePage() {
       <section className="culture-grid">
         {cultures.map(([title,text],i)=><article key={title}><span>0{i+1}</span><h2>{title}</h2><p>{text}</p></article>)}
       </section>
+      <div className="culture-photo"><img src="/hph-therapist.jpg" alt="利用者様と向き合うHPHスタッフ" /><p>一人ひとりに、誠実に向き合う。</p></div>
     </SubPageShell>
   );
 }
