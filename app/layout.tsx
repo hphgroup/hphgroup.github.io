@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
-  const baseUrl = new URL(`${protocol}://${host}`);
+export function generateMetadata(): Metadata {
+  const baseUrl = new URL("https://hphitaku.github.io/");
   const title = "株式会社HPH";
   const description =
     "感謝を込めて感動を届ける。株式会社HPHは、神戸市で訪問鍼灸マッサージ事業、デイサービス事業、保険外の生活サポート事業を展開しています。採用情報も掲載しています。";
