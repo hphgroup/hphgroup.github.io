@@ -122,7 +122,10 @@ export default function Home() {
         <div className="statement-inner reveal">
           <p className="section-label"><span>01</span> OUR VISION</p>
           <div>
-            <h2>関わるすべての人に、<br />感動を届ける。</h2>
+            <h2 className="vision-title">
+              <span>関わるすべての人に、</span>
+              <span>感動を届ける。</span>
+            </h2>
             <p className="statement-lead">
               HPHは、多くの人との繋がりの中で成り立っています。
             </p>
