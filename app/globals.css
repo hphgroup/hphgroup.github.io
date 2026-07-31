@@ -291,7 +291,7 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
   .scroll { left:24px; }
   .statement { padding:100px 24px 75px; }
   .statement-inner { grid-template-columns:1fr; gap:35px; margin:85px 0 70px; }
-  .values { grid-template-columns:1fr; }
+  .values { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .care-detail { grid-template-columns:1fr; }
   .care-detail img { height:300px; }
   .care-detail p { padding:35px 25px; }
@@ -347,6 +347,18 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
 }
 
 @media (max-width: 520px) {
+  .values-heading { margin:0 0 18px; gap:10px; justify-content:center; }
+  .values-heading::after { max-width:38px; }
+  .values-heading h3 { white-space:nowrap; font-size:14px; letter-spacing:0; }
+  .values-heading em { font-size:25px; margin:0 1px; }
+  .values { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; padding:0; }
+  .values article { padding:18px 15px 15px; min-height:190px; border-radius:14px; }
+  .values article::after { width:78px; height:78px; border-width:14px; right:-44px; top:-44px; }
+  .values article > strong { font-size:20px; padding-bottom:5px; }
+  .values span { margin:12px 0 5px; font-size:7px; letter-spacing:.1em; overflow-wrap:anywhere; }
+  .values h3 { font-size:22px; margin-bottom:9px; letter-spacing:0; }
+  .values p:not(.value-accent) { display:none; }
+  .values .value-accent { margin-top:0; padding:9px 8px; border-radius:8px; font-size:10px; line-height:1.55; }
   .hero { height:780px; min-height:780px; }
   .hero-image {
     inset:auto 18px auto 18px;
