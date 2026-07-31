@@ -109,9 +109,15 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-side">MAKE A HAPPY FUTURE WITH YOU</div>
-        <a href="#vision" className="scroll">
+        <nav className="scroll" aria-label="ページ内セクション">
           <span>SCROLL</span><i />
-        </a>
+          <div className="scroll-track">
+            <a href="#vision"><b>01</b> 理念</a>
+            <a href="#business"><b>02</b> 事業</a>
+            <a href="#recruit"><b>03</b> 採用</a>
+            <a href="#company"><b>04</b> 会社概要</a>
+          </div>
+        </nav>
       </section>
 
       <section className="statement" id="vision">
@@ -247,13 +253,12 @@ export default function Home() {
         <p>CONTACT US</p>
         <h2>ご相談・採用について、<br />お気軽にお問い合わせください。</h2>
         <div className="contact-actions">
-          <a href="tel:0787548576"><span>078-754-8576</span><Arrow /></a>
+          <a href="tel:0787548576"><span>078-754-8576</span><span className="contact-call-badge">CALL</span></a>
           <a className="contact-form-link" href="/contact">お問い合わせフォーム <Arrow /></a>
         </div>
       </section>
 
       <footer>
-        <div className="footer-logo"><img src="/hph-logo-transparent.png" alt="株式会社HPH" /></div>
         <p>〒655-0012 兵庫県神戸市垂水区向陽2丁目6-18<br />向陽センタービル103</p>
         <div className="footer-links">
           <a href="/about">私たちについて</a>
