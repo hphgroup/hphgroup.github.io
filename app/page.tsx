@@ -1,12 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
+
+const heroSlides = [
+  {
+    image: "/hph-team.jpg",
+    alt: "屋外で対話するHPHスタッフ",
+    kicker: ["HUMANITY", "PASSION", "HAPPINESS"],
+    title: ["感謝を込めて、", "感動を届ける。"],
+    lead: <>医療・介護を通じて、<br />関わるすべての人に価値を届ける会社へ。</>,
+    links: [["事業内容を見る", "/business"], ["採用情報を見る", "/recruit"]],
+  },
+  {
+    image: "/hph-acupuncture.jpg",
+    alt: "利用者様への訪問鍼灸施術",
+    kicker: ["HOME VISIT", "ACUPUNCTURE", "MASSAGE"],
+    title: ["暮らしのそばで、", "健康と安心を支える。"],
+    lead: <>一人ひとりの暮らしに寄り添い、<br />地域の健康と安心を支えます。</>,
+    links: [["事業内容を見る", "/business"], ["お問い合わせ", "/contact"]],
+  },
+  {
+    image: "/hph-therapist.jpg",
+    alt: "利用者様に向き合うHPHスタッフ",
+    kicker: ["RECRUIT", "GROWTH", "WITH HPH"],
+    title: ["「ありがとう」が、", "次の力になる。"],
+    lead: <>人を想う姿勢と成長する意欲を、<br />地域への価値に変えていきます。</>,
+    links: [["採用情報を見る", "/recruit"], ["お問い合わせ", "/contact"]],
+  },
+] as const;
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeHero, setActiveHero] = useState(0);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     let frame = 0;
@@ -39,7 +68,27 @@ export default function Home() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const timer = window.setInterval(
+      () => setActiveHero((current) => (current + 1) % heroSlides.length),
+      6000
+    );
+    return () => window.clearInterval(timer);
+  }, []);
+
   const closeMenu = () => setMenuOpen(false);
+  const endHeroSwipe = (clientX: number) => {
+    if (touchStartX.current === null) return;
+    const distance = clientX - touchStartX.current;
+    if (Math.abs(distance) > 45) {
+      setActiveHero((current) =>
+        distance < 0
+          ? (current + 1) % heroSlides.length
+          : (current - 1 + heroSlides.length) % heroSlides.length
+      );
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <main>
@@ -87,37 +136,48 @@ export default function Home() {
       </div>
 
       <section className="hero" id="top">
-        <div className="hero-image">
-          <img src="/hph-team.jpg" alt="屋外で対話するHPHスタッフ" />
+        <div
+          className="hero-slides"
+          onTouchStart={(event) => { touchStartX.current = event.touches[0]?.clientX ?? null; }}
+          onTouchEnd={(event) => endHeroSwipe(event.changedTouches[0]?.clientX ?? 0)}
+        >
+          {heroSlides.map((slide, index) => (
+            <article className={`hero-slide ${activeHero === index ? "is-active" : ""}`} key={slide.image}>
+              <div className="hero-image">
+                <img src={slide.image} alt={slide.alt} />
+              </div>
+              <div className="hero-copy">
+                <p className="hero-kicker">{slide.kicker.map((word) => <span key={word}>{word}</span>)}</p>
+                <h1>
+                  <span className="line-mask"><b>{slide.title[0]}</b></span>
+                  <span className="line-mask"><b>{slide.title[1]}</b></span>
+                </h1>
+                <p className="hero-lead">{slide.lead}</p>
+                <div className="hero-buttons">
+                  {slide.links.map(([label, href]) => <a href={href} key={href}>{label} <Arrow /></a>)}
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
         <div className="hero-shape shape-a" />
         <div className="hero-shape shape-b" />
-        <div className="hero-copy">
-          <p className="hero-kicker"><span>HUMANITY</span><span>PASSION</span><span>HAPPINESS</span></p>
-          <h1>
-            <span className="line-mask"><b>感謝を込めて、</b></span>
-            <span className="line-mask"><b>感動を届ける。</b></span>
-          </h1>
-          <p className="hero-lead">
-            医療・介護を通じて、
-            <br />
-            関わるすべての人に価値を届ける会社へ。
-          </p>
-          <div className="hero-buttons">
-            <a href="/business">事業内容を見る <Arrow /></a>
-            <a href="/recruit">採用情報を見る <Arrow /></a>
-          </div>
-        </div>
         <div className="hero-side">MAKE A HAPPY FUTURE WITH YOU</div>
-        <nav className="scroll" aria-label="ページ内セクション">
-          <span>SCROLL</span><i />
-          <div className="scroll-track">
-            <a href="#vision"><b>01</b> 理念</a>
-            <a href="#business"><b>02</b> 事業</a>
-            <a href="#recruit"><b>03</b> 採用</a>
-            <a href="#company"><b>04</b> 会社概要</a>
+        <div className="hero-slider-control">
+          <span>SWIPE</span><i />
+          <div className="hero-dots" aria-label="トップ画像を切り替える">
+            {heroSlides.map((_, index) => (
+              <button
+                type="button"
+                className={activeHero === index ? "is-active" : ""}
+                onClick={() => setActiveHero(index)}
+                aria-label={`${index + 1}枚目を表示`}
+                key={index}
+              />
+            ))}
           </div>
-        </nav>
+          <small>0{activeHero + 1} / 0{heroSlides.length}</small>
+        </div>
       </section>
 
       <section className="statement" id="vision">
