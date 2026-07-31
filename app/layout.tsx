@@ -7,9 +7,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const baseUrl = new URL(`${protocol}://${host}`);
-  const title = "株式会社HPH｜神戸市の訪問鍼灸マッサージ・デイサービス";
+  const title = "株式会社HPH｜神戸市の訪問鍼灸マッサージ・デイサービス・生活サポート";
   const description =
-    "感謝を込めて感動を届ける。株式会社HPHは、神戸市垂水区で訪問鍼灸マッサージ事業とデイサービス事業を展開しています。採用情報も掲載しています。";
+    "感謝を込めて感動を届ける。株式会社HPHは、神戸市で訪問鍼灸マッサージ事業、デイサービス事業、保険外の生活サポート事業を展開しています。採用情報も掲載しています。";
 
   return {
     metadataBase: baseUrl,

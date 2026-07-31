@@ -266,6 +266,20 @@ export default function Home() {
             <i /><i /><i />
           </div>
         </article>
+        <article className="business-card business-card-photo support-card reveal">
+          <div className="business-photo">
+            <img src="/hph-support.jpg" alt="利用者様の暮らしに寄り添うHPHスタッフ" />
+          </div>
+          <div className="business-copy">
+            <span className="business-number">03</span>
+            <p>DAILY LIFE SUPPORT</p>
+            <h3>生活サポート事業</h3>
+            <p className="body-copy">
+              通院同行、お部屋の片付け、話し相手など、保険では対応できない日常のお困りごとをサポート。
+              神戸市全域で、一人ひとりの暮らしに合わせた幅広いサービスを提供します。
+            </p>
+          </div>
+        </article>
         <a className="business-more reveal" href="/business">事業内容を詳しく見る <Arrow /></a>
       </section>
 
@@ -297,7 +311,7 @@ export default function Home() {
         </div>
         <dl className="reveal">
           <div><dt>会社名</dt><dd>株式会社HPH</dd></div>
-          <div><dt>事業内容</dt><dd>訪問鍼灸マッサージ事業<br />デイサービス事業</dd></div>
+          <div><dt>事業内容</dt><dd>訪問鍼灸マッサージ事業<br />デイサービス事業<br />生活サポート事業</dd></div>
           <div><dt>所在地</dt><dd>〒655-0012<br />兵庫県神戸市垂水区向陽2丁目6-18<br />向陽センタービル103</dd></div>
           <div>
             <dt>連絡先</dt>

@@ -161,6 +161,8 @@ button { font: inherit; }
 .business-photo { overflow:hidden; clip-path:ellipse(75% 85% at 20% 50%); }
 .business-photo img { height:100%; object-fit:cover; object-position:52% center; filter:brightness(1.1) saturate(.9) contrast(.95); transition:transform 1.2s; }
 .business-card:hover .business-photo img { transform:scale(1.045); }
+.support-card .business-photo { clip-path:ellipse(78% 88% at 22% 50%); }
+.support-card .business-photo img { object-position:center; }
 .business-copy { padding:70px 55px; position:relative; display:flex; flex-direction:column; justify-content:center; }
 .business-number { position:absolute; top:15px; right:25px; color:#eee; font:900 100px/1 Arial; }
 .business-copy > p:first-of-type { color:var(--red); font:800 10px Arial; letter-spacing:.16em; }
