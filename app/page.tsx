@@ -9,7 +9,15 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    let frame = 0;
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        document.documentElement.style.setProperty("--scroll-drift", `${window.scrollY * 0.08}px`);
+        frame = 0;
+      });
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
@@ -21,6 +29,7 @@ export default function Home() {
 
     return () => {
       window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
       observer.disconnect();
     };
   }, []);
