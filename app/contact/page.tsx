@@ -35,6 +35,23 @@ export default function ContactPage() {
     setConfirming(true);
   };
 
+  const mailSubject = `【HPH公式サイト】${form.category}／${form.name || "お問い合わせ"}`;
+  const mailBody = [
+    "株式会社HPH ご担当者様",
+    "",
+    "公式サイトのお問い合わせフォームよりご連絡します。",
+    "",
+    `お問い合わせ種別：${form.category}`,
+    `お名前：${form.name}`,
+    `会社・施設名：${form.organization || "未入力"}`,
+    `電話番号：${form.phone}`,
+    `メールアドレス：${form.email}`,
+    "",
+    "お問い合わせ内容：",
+    form.message,
+  ].join("\n");
+  const mailHref = `mailto:inc.hph0201@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
   return (
     <SubPageShell
       number="05"
@@ -99,7 +116,8 @@ export default function ContactPage() {
               <div><dt>メールアドレス</dt><dd>{form.email}</dd></div>
               <div><dt>お問い合わせ内容</dt><dd>{form.message}</dd></div>
             </dl>
-            <p className="contact-setup-note">送信先メールアドレスの設定後、この位置に「送信する」ボタンが表示されます。</p>
+            <p className="contact-setup-note">「メールを作成する」を押すと、入力内容を反映したメール画面が開きます。内容を確認して送信してください。</p>
+            <a className="contact-mail-link" href={mailHref}>メールを作成する <span>↗</span></a>
             <button type="button" onClick={() => setConfirming(false)}>入力内容を修正する</button>
           </section>
         )}

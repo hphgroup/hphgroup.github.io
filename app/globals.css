@@ -131,7 +131,7 @@ button { font: inherit; }
 .care-detail img { height:100%; object-fit:cover; object-position:center; filter:brightness(1.08) saturate(.86) contrast(.94); }
 .care-detail p { margin:0; padding:55px; display:flex; flex-direction:column; justify-content:center; font-size:clamp(22px,2.5vw,37px); font-weight:900; line-height:1.5; }
 .care-detail p span { color:var(--red); font:800 10px Arial; letter-spacing:.17em; margin-bottom:17px; }
-.business { background:#3a2b2f; color:white; padding:130px 7vw; overflow:hidden; }
+.business { background:var(--red); color:white; padding:130px 7vw; overflow:hidden; }
 .business-heading { display:grid; grid-template-columns:.45fr 1fr; max-width:1200px; margin:0 auto 90px; gap:6vw; }
 .business-heading h2 { grid-column:2; margin-top:-5px; }
 .business-heading > p:last-child { grid-column:2; color:#aaa; margin-top:-20px; }
@@ -145,10 +145,13 @@ button { font: inherit; }
 .business-copy > p:first-of-type { color:var(--red); font:800 10px Arial; letter-spacing:.16em; }
 .business-copy h3 { font-size:clamp(35px,4vw,58px); line-height:1.25; margin:5px 0 25px; }
 .body-copy { color:var(--gray); font-size:14px; }
-.business-card-color { background:var(--red); color:white; grid-template-columns:.9fr 1.1fr; }
-.business-card-color .business-number { color:rgba(255,255,255,.12); }
-.business-card-color .business-copy > p:first-of-type, .business-card-color .body-copy { color:white; }
-.business-card-color .body-copy { opacity:.78; }
+.business-card-color { background:white; color:var(--ink); grid-template-columns:.9fr 1.1fr; }
+.business-card-color .business-number { color:rgba(207,18,55,.1); }
+.business-card-color .business-copy > p:first-of-type { color:var(--red); }
+.business-card-color .body-copy { color:var(--gray); opacity:1; }
+.business-card-color .day-visual { background:#fff7f8; border-left:1px solid #f1dde2; }
+.business-card-color .day-circle { background:var(--red); color:white; }
+.business-card-color .day-visual i { border-color:rgba(207,18,55,.18); }
 .business-more { max-width:1200px; margin:-35px auto 0; border:1px solid #777; min-height:70px; display:flex; align-items:center; justify-content:center; gap:30px; font-size:13px; font-weight:800; transition:.3s; }
 .business-more:hover { background:white; color:var(--ink); }
 .day-visual { min-height:570px; display:grid; place-items:center; position:relative; overflow:hidden; background:#b70e30; }
@@ -297,6 +300,8 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
 .contact-confirm dt { color:var(--gray); font-size:11px; }
 .contact-confirm dd { margin:0; white-space:pre-wrap; }
 .contact-setup-note { background:var(--rose); color:var(--deep); padding:14px; font-size:12px; }
+.contact-mail-link { margin:16px 0 10px; min-height:64px; background:var(--red); color:white; padding:0 24px; display:flex; justify-content:space-between; align-items:center; font-weight:800; }
+.contact-confirm button { width:100%; background:var(--ink); margin-top:8px; }
 
 @keyframes heroReveal { from { clip-path:inset(0 100% 0 0); } to { clip-path:inset(0); } }
 @keyframes heroZoom { from { transform:scale(1.1); } to { transform:scale(1); } }
