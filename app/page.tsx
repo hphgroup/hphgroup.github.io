@@ -71,10 +71,10 @@ export default function Home() {
   useEffect(() => {
     const timer = window.setInterval(
       () => setActiveHero((current) => (current + 1) % heroSlides.length),
-      6000
+      10000
     );
     return () => window.clearInterval(timer);
-  }, []);
+  }, [activeHero]);
 
   const closeMenu = () => setMenuOpen(false);
   const endHeroSwipe = (clientX: number) => {
