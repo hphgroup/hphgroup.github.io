@@ -24,13 +24,13 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       type: "website",
       locale: "ja_JP",
-      images: [{ url: new URL("/og.png", baseUrl).toString(), width: 1200, height: 630, alt: "株式会社HPH 感謝を込めて、感動を届ける。" }],
+      images: [{ url: new URL("/og-v2.png", baseUrl).toString(), width: 1200, height: 630, alt: "株式会社HPH 感謝を込めて、感動を届ける。" }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [new URL("/og.png", baseUrl).toString()],
+      images: [new URL("/og-v2.png", baseUrl).toString()],
     },
   };
 }

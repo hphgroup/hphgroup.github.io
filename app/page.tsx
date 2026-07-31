@@ -1,271 +1,217 @@
-const PhoneIcon = () => <span aria-hidden="true">☎</span>;
-const ArrowIcon = () => <span aria-hidden="true">→</span>;
+"use client";
+
+import { useEffect, useState } from "react";
+
+const Arrow = () => <span aria-hidden="true">↗</span>;
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <main>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="株式会社HPH トップへ">
+      <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+        <a href="#top" className="brand" aria-label="株式会社HPH トップへ" onClick={closeMenu}>
           <img src="/hph-logo.jpg" alt="株式会社HPH" />
         </a>
-        <nav aria-label="メインナビゲーション">
-          <a href="#philosophy">私たちについて</a>
-          <a href="#services">事業紹介</a>
+        <nav className="desktop-nav" aria-label="メインナビゲーション">
+          <a href="#vision">私たちについて</a>
+          <a href="#business">事業紹介</a>
           <a href="#recruit">採用情報</a>
           <a href="#company">会社概要</a>
         </nav>
-        <a className="header-contact" href="tel:0787548576">
-          <PhoneIcon /> 078-754-8576
-        </a>
+        <button
+          className={`menu-button ${menuOpen ? "is-open" : ""}`}
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-controls="global-menu"
+          aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
+        >
+          <span /><span />
+          <small>MENU</small>
+        </button>
       </header>
 
+      <div className={`global-menu ${menuOpen ? "is-open" : ""}`} id="global-menu" aria-hidden={!menuOpen}>
+        <nav aria-label="メニューナビゲーション">
+          {[
+            ["01", "私たちについて", "#vision"],
+            ["02", "事業紹介", "#business"],
+            ["03", "採用情報", "#recruit"],
+            ["04", "会社概要", "#company"],
+          ].map(([number, label, href]) => (
+            <a href={href} onClick={closeMenu} key={href}>
+              <span>{number}</span><strong>{label}</strong><Arrow />
+            </a>
+          ))}
+        </nav>
+        <div className="menu-contact">
+          <p>CONTACT</p>
+          <a href="tel:0787548576">078-754-8576</a>
+          <span>兵庫県神戸市垂水区向陽2丁目6-18</span>
+        </div>
+      </div>
+
       <section className="hero" id="top">
-        <div className="hero-orbit orbit-one" />
-        <div className="hero-orbit orbit-two" />
+        <div className="hero-image">
+          <img src="/care-team.jpg" alt="ケアスタッフと利用者の笑顔" />
+        </div>
+        <div className="hero-shape shape-a" />
+        <div className="hero-shape shape-b" />
         <div className="hero-copy">
-          <p className="eyebrow">HUMANITY · PASSION · HAPPINESS</p>
+          <p className="hero-kicker"><span>HUMANITY</span><span>PASSION</span><span>HAPPINESS</span></p>
           <h1>
-            感謝を込めて、
-            <br />
-            <span>感動を届ける。</span>
+            <span className="line-mask"><b>感謝を込めて、</b></span>
+            <span className="line-mask"><b>感動を届ける。</b></span>
           </h1>
           <p className="hero-lead">
-            私たちは医療・介護を通じて、
-            <br className="desktop-only" />
-            一人ひとりの「その人らしい毎日」に寄り添います。
+            医療と介護の力で、
+            <br />
+            一人ひとりの「その人らしい毎日」を。
           </p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="#services">
-              私たちの事業を見る <ArrowIcon />
-            </a>
-            <a className="button button-secondary" href="#recruit">
-              採用情報を見る
-            </a>
-          </div>
         </div>
-        <div className="hero-visual" aria-label="手と手をつなぐ、人に寄り添う医療と介護">
-          <div className="care-scene">
-            <div className="care-ring ring-a" />
-            <div className="care-ring ring-b" />
-            <div className="care-center">
-              <span className="care-heart">♥</span>
-              <span>人と人を、想いでつなぐ</span>
-            </div>
-          </div>
-          <div className="hero-note">
-            <strong>HPH</strong>
-            <span>神戸市垂水区から、地域の暮らしを支えます。</span>
-          </div>
-        </div>
-        <a className="scroll-cue" href="#philosophy" aria-label="理念へスクロール">
-          <span>SCROLL</span>
-          <i />
+        <div className="hero-side">MAKE A HAPPY FUTURE WITH YOU</div>
+        <a href="#vision" className="scroll">
+          <span>SCROLL</span><i />
         </a>
       </section>
 
-      <section className="philosophy section" id="philosophy">
-        <div className="section-heading">
-          <p className="eyebrow">OUR PHILOSOPHY</p>
-          <h2>私たちが大切にしていること</h2>
+      <section className="statement" id="vision">
+        <div className="marquee" aria-hidden="true">
+          <div>HUMANITY · PASSION · HAPPINESS · HUMANITY · PASSION · HAPPINESS ·&nbsp;</div>
+          <div>HUMANITY · PASSION · HAPPINESS · HUMANITY · PASSION · HAPPINESS ·&nbsp;</div>
         </div>
-        <div className="philosophy-grid">
-          <div className="philosophy-message">
-            <p className="large-copy">
-              目の前の人に、誠実に。
-              <br />
-              できることに、情熱を。
-            </p>
-            <p>
-              HPHという名前には、私たちの仕事の原点となる3つの想いが込められています。
-              人と人とのつながりを大切にし、情熱を持って行動し、関わるすべての方の幸福を願う。
-              その積み重ねが、地域に信頼される医療・介護につながると考えています。
-            </p>
-          </div>
-          <div className="values">
-            <article>
-              <span>H</span>
-              <div>
-                <small>HUMANITY</small>
-                <h3>人情</h3>
-                <p>思いやりと温かな心で、一人ひとりに向き合います。</p>
-              </div>
-            </article>
-            <article>
-              <span>P</span>
-              <div>
-                <small>PASSION</small>
-                <h3>情熱</h3>
-                <p>より良い支援を追求し、前向きに挑戦し続けます。</p>
-              </div>
-            </article>
-            <article>
-              <span>H</span>
-              <div>
-                <small>HAPPINESS</small>
-                <h3>幸福</h3>
-                <p>ご利用者さま、地域、仲間の笑顔を育みます。</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="services section" id="services">
-        <div className="section-heading heading-row">
+        <div className="statement-inner reveal">
+          <p className="section-label"><span>01</span> OUR VISION</p>
           <div>
-            <p className="eyebrow">OUR SERVICES</p>
-            <h2>地域の毎日に寄り添う、2つの事業</h2>
-          </div>
-          <p>
-            専門性とまごころを大切に、
-            <br />
-            住み慣れた地域での暮らしを支えます。
-          </p>
-        </div>
-        <div className="service-grid">
-          <article className="service-card">
-            <div className="service-number">01</div>
-            <div className="service-icon" aria-hidden="true">訪</div>
-            <p className="service-en">HOME-VISIT CARE</p>
-            <h3>訪問鍼灸マッサージ事業</h3>
-            <p>
-              ご自宅や施設へ訪問し、身体の状態や生活環境に合わせた鍼灸・マッサージを提供。
-              通院が難しい方の心身に寄り添い、日常生活の維持・向上を支援します。
+            <h2>人の想いが、<br />地域の幸せをつくる。</h2>
+            <p className="statement-lead">
+              私たちHPHは、人と人とのつながりを大切にする
+              <strong>ヘルスケアカンパニー</strong>です。
             </p>
-            <div className="service-tags">
-              <span>ご自宅・施設へ訪問</span>
-              <span>個別に合わせたケア</span>
-            </div>
-          </article>
-          <article className="service-card accent-card">
-            <div className="service-number">02</div>
-            <div className="service-icon" aria-hidden="true">日</div>
-            <p className="service-en">DAY SERVICE</p>
+            <p>
+              思いやりを持って一人ひとりに向き合い、情熱を持ってより良い支援を追求する。
+              医療・介護を通じて、ご利用者さま、ご家族、地域、そして働く仲間の幸福を育みます。
+            </p>
+          </div>
+        </div>
+        <div className="values reveal">
+          <article><strong>H</strong><div><span>HUMANITY</span><h3>人情</h3><p>温かな心で、人に寄り添う。</p></div></article>
+          <article><strong>P</strong><div><span>PASSION</span><h3>情熱</h3><p>より良い未来へ、挑み続ける。</p></div></article>
+          <article><strong>H</strong><div><span>HAPPINESS</span><h3>幸福</h3><p>関わるすべての人を、笑顔に。</p></div></article>
+        </div>
+      </section>
+
+      <section className="business" id="business">
+        <div className="business-heading reveal">
+          <p className="section-label light"><span>02</span> OUR BUSINESS</p>
+          <h2>暮らしのそばで、<br />健康と安心を支える。</h2>
+          <p>神戸市垂水区を拠点に、2つの事業を展開しています。</p>
+        </div>
+        <article className="business-card business-card-photo reveal">
+          <div className="business-photo">
+            <img src="/massage-care.jpg" alt="高齢者へのマッサージ施術イメージ" />
+          </div>
+          <div className="business-copy">
+            <span className="business-number">01</span>
+            <p>HOME-VISIT ACUPUNCTURE &amp; MASSAGE</p>
+            <h3>訪問鍼灸<br />マッサージ事業</h3>
+            <p className="body-copy">
+              ご自宅や施設へ訪問し、身体の状態や生活環境に合わせたケアを提供。
+              通院が難しい方の心身に寄り添い、毎日の暮らしを支えます。
+            </p>
+          </div>
+        </article>
+        <article className="business-card business-card-color reveal">
+          <div className="business-copy">
+            <span className="business-number">02</span>
+            <p>DAY SERVICE</p>
             <h3>デイサービス事業</h3>
-            <p>
+            <p className="body-copy">
               安心して過ごせる居場所と、その方らしい生活につながる時間を提供。
-              地域とのつながりを大切にしながら、いきいきとした毎日をサポートします。
+              人との交流や活動を通じて、いきいきとした毎日をサポートします。
             </p>
-            <div className="service-tags">
-              <span>安心できる居場所</span>
-              <span>生活を支える活動</span>
-            </div>
-          </article>
-        </div>
+          </div>
+          <div className="day-visual" aria-hidden="true">
+            <div className="day-circle"><span>つながる</span><b>笑顔</b><small>地域とともに</small></div>
+            <i /><i /><i />
+          </div>
+        </article>
       </section>
 
-      <section className="recruit section" id="recruit">
-        <div className="recruit-panel">
-          <div className="recruit-copy">
-            <p className="eyebrow light">RECRUIT</p>
-            <h2>
-              誰かの笑顔が、
-              <br />
-              自分の誇りになる仕事。
-            </h2>
-            <p>
-              技術や経験だけではなく、目の前の人を大切にできる気持ちを歓迎します。
-              HPHで、地域の未来を支える仲間になりませんか。
-            </p>
-            <div className="recruit-points">
-              <span>人に寄り添える</span>
-              <span>成長を楽しめる</span>
-              <span>地域に貢献できる</span>
-            </div>
-            <a className="button button-white" href="tel:0787548576">
-              採用について問い合わせる <ArrowIcon />
-            </a>
-          </div>
-          <div className="recruit-quote">
-            <span>“</span>
-            <p>ありがとうが、次の力になる。</p>
-            <small>WORK WITH HPH</small>
-          </div>
+      <section className="recruit" id="recruit">
+        <div className="recruit-image reveal">
+          <img src="/care-team.jpg" alt="利用者と笑顔で接するケアスタッフ" />
         </div>
+        <div className="recruit-copy reveal">
+          <p className="section-label"><span>03</span> RECRUIT</p>
+          <h2>「ありがとう」が、<br />次の力になる。</h2>
+          <p>
+            技術や経験だけではなく、目の前の人を大切にできる気持ちを歓迎します。
+            HPHで、地域の未来を支える仲間になりませんか。
+          </p>
+          <a className="round-link" href="tel:0787548576">
+            <span>採用について<br />問い合わせる</span><Arrow />
+          </a>
+        </div>
+        <div className="recruit-bg-text" aria-hidden="true">WORK WITH HPH</div>
       </section>
 
-      <section className="company section" id="company">
-        <div className="section-heading">
-          <p className="eyebrow">COMPANY</p>
+      <section className="company" id="company">
+        <div className="company-title reveal">
+          <p className="section-label"><span>04</span> COMPANY</p>
           <h2>会社概要</h2>
+          <div className="company-mark">HPH</div>
         </div>
-        <div className="company-grid">
-          <dl>
-            <div>
-              <dt>会社名</dt>
-              <dd>株式会社HPH</dd>
-            </div>
-            <div>
-              <dt>事業内容</dt>
-              <dd>訪問鍼灸マッサージ事業／デイサービス事業</dd>
-            </div>
-            <div>
-              <dt>所在地</dt>
-              <dd>
-                〒655-0012
-                <br />
-                兵庫県神戸市垂水区向陽2丁目6-18
-                <br />
-                向陽センタービル103
-              </dd>
-            </div>
-            <div>
-              <dt>電話・FAX</dt>
-              <dd>
-                TEL：<a href="tel:0787548576">078-754-8576</a>
-                <br />
-                FAX：078-754-8580
-              </dd>
-            </div>
-          </dl>
-          <div className="map-card">
-            <div className="map-lines" aria-hidden="true">
-              <i /><i /><i /><i />
-            </div>
-            <div className="map-pin">
-              <span>HPH</span>
-            </div>
-            <div className="map-label">
-              <strong>神戸市垂水区</strong>
-              <span>向陽センタービル103</span>
-            </div>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E7%A5%9E%E6%88%B8%E5%B8%82%E5%9E%82%E6%B0%B4%E5%8C%BA%E5%90%91%E9%99%BD2%E4%B8%81%E7%9B%AE6-18"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Google マップで見る <ArrowIcon />
-            </a>
-          </div>
-        </div>
+        <dl className="reveal">
+          <div><dt>会社名</dt><dd>株式会社HPH</dd></div>
+          <div><dt>事業内容</dt><dd>訪問鍼灸マッサージ事業<br />デイサービス事業</dd></div>
+          <div><dt>所在地</dt><dd>〒655-0012<br />兵庫県神戸市垂水区向陽2丁目6-18<br />向陽センタービル103</dd></div>
+          <div><dt>連絡先</dt><dd>TEL：<a href="tel:0787548576">078-754-8576</a><br />FAX：078-754-8580</dd></div>
+        </dl>
       </section>
 
       <section className="contact">
-        <p className="eyebrow">CONTACT</p>
-        <h2>ご相談・採用について、お気軽にお問い合わせください。</h2>
-        <a href="tel:0787548576" className="contact-phone">
-          <PhoneIcon /> <span>078-754-8576</span>
-        </a>
-        <p>受付時間は事業所までお問い合わせください</p>
+        <p>CONTACT US</p>
+        <h2>ご相談・採用について、<br />お気軽にお問い合わせください。</h2>
+        <a href="tel:0787548576"><span>078-754-8576</span><Arrow /></a>
       </section>
 
       <footer>
-        <div className="footer-main">
-          <img src="/hph-logo.jpg" alt="株式会社HPH" />
-          <p>
-            〒655-0012 兵庫県神戸市垂水区向陽2丁目6-18
-            <br />
-            向陽センタービル103
-          </p>
-          <nav aria-label="フッターナビゲーション">
-            <a href="#philosophy">私たちについて</a>
-            <a href="#services">事業紹介</a>
-            <a href="#recruit">採用情報</a>
-            <a href="#company">会社概要</a>
-          </nav>
+        <div className="footer-logo"><img src="/hph-logo.jpg" alt="株式会社HPH" /></div>
+        <p>〒655-0012 兵庫県神戸市垂水区向陽2丁目6-18<br />向陽センタービル103</p>
+        <div className="footer-links">
+          <a href="#vision">私たちについて</a>
+          <a href="#business">事業紹介</a>
+          <a href="#recruit">採用情報</a>
+          <a href="#company">会社概要</a>
         </div>
         <div className="footer-bottom">
-          <span>感謝を込めて感動を届ける</span>
+          <span>掲載写真はイメージです。</span>
           <small>© 2026 HPH Inc.</small>
         </div>
       </footer>
