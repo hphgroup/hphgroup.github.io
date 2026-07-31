@@ -521,6 +521,8 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
   .culture-photo p { font-size:18px; line-height:1.5; right:18px; }
   .business-photo { height:300px; }
   .recruit-image { height:360px; }
+  .company { gap:28px; }
+  .company-title h2 { margin-bottom:0; }
   .company dl > div { grid-template-columns:1fr; gap:7px; }
   .contact-actions > a:first-child span:first-child { font-size:9.2vw; }
   .contact-actions { align-items:stretch; flex-direction:column; }
