@@ -163,6 +163,8 @@ button { font: inherit; }
 .business-card:hover .business-photo img { transform:scale(1.045); }
 .support-card .business-photo { clip-path:ellipse(78% 88% at 22% 50%); }
 .support-card .business-photo img { object-position:center; }
+.day-service-photo { clip-path:ellipse(78% 88% at 78% 50%); }
+.day-service-photo img { object-position:center; }
 .business-copy { padding:70px 55px; position:relative; display:flex; flex-direction:column; justify-content:center; }
 .business-number { position:absolute; top:15px; right:25px; color:#eee; font:900 100px/1 Arial; }
 .business-copy > p:first-of-type { color:var(--red); font:800 10px Arial; letter-spacing:.16em; }

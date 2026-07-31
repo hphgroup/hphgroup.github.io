@@ -9,7 +9,7 @@ export default function BusinessPage() {
       </section>
       <section className="service-detail">
         <article><div><img src="/hph-acupuncture.jpg" alt="HPHによる訪問鍼灸施術" /></div><section><span>01</span><p>HOME-VISIT ACUPUNCTURE &amp; MASSAGE</p><h2>訪問鍼灸<br />マッサージ事業</h2><p>ご自宅や施設へ訪問し、身体の状態や生活環境に合わせた鍼灸・マッサージを提供。通院が難しい方の日常生活を支援します。</p></section></article>
-        <article><div className="service-color">DAY<br />SERVICE</div><section><span>02</span><p>DAY SERVICE</p><h2>デイサービス事業</h2><p>安心して過ごせる居場所と、その方らしい生活につながる時間を提供。人との交流や活動を通じて、いきいきとした毎日を支えます。</p></section></article>
+        <article><div><img src="/day-service-no-faces.png" alt="デイサービスで作品づくりを楽しむ利用者様の手元" /></div><section><span>02</span><p>DAY SERVICE</p><h2>デイサービス事業</h2><p>安心して過ごせる居場所と、その方らしい生活につながる時間を提供。人との交流や活動を通じて、いきいきとした毎日を支えます。</p></section></article>
         <article><div><img src="/life-support.png" alt="車椅子を押しながら外出に付き添う生活サポートスタッフ" /></div><section><span>03</span><p>DAILY LIFE SUPPORT</p><h2>生活サポート事業</h2><p>通院同行、お部屋の片付け、話し相手など、介護・医療保険の対象外となる日常のお困りごとを幅広くサポート。兵庫県神戸市全域で、ご希望や生活状況に合わせたサービスを提供します。</p></section></article>
       </section>
       <section className="future">

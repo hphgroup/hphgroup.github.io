@@ -261,9 +261,8 @@ export default function Home() {
               人との交流や活動を通じて、いきいきとした毎日をサポートします。
             </p>
           </div>
-          <div className="day-visual" aria-hidden="true">
-            <div className="day-circle"><span>つながる</span><b>笑顔</b><small>地域とともに</small></div>
-            <i /><i /><i />
+          <div className="business-photo day-service-photo">
+            <img src="/day-service-no-faces.png" alt="デイサービスで作品づくりを楽しむ利用者様の手元" />
           </div>
         </article>
         <article className="business-card business-card-photo support-card reveal">
