@@ -39,9 +39,9 @@ export default function Home() {
           <img src="/hph-logo.jpg" alt="株式会社HPH" />
         </a>
         <nav className="desktop-nav" aria-label="メインナビゲーション">
-          <a href="#vision">私たちについて</a>
-          <a href="#business">事業紹介</a>
-          <a href="#recruit">採用情報</a>
+          <a href="/about">私たちについて</a>
+          <a href="/business">事業紹介</a>
+          <a href="/recruit">採用情報</a>
           <a href="#company">会社概要</a>
         </nav>
         <button
@@ -59,10 +59,10 @@ export default function Home() {
       <div className={`global-menu ${menuOpen ? "is-open" : ""}`} id="global-menu" aria-hidden={!menuOpen}>
         <nav aria-label="メニューナビゲーション">
           {[
-            ["01", "私たちについて", "#vision"],
-            ["02", "事業紹介", "#business"],
-            ["03", "採用情報", "#recruit"],
-            ["04", "会社概要", "#company"],
+            ["01", "私たちについて", "/about"],
+            ["02", "事業紹介", "/business"],
+            ["03", "HPHの文化", "/culture"],
+            ["04", "採用情報", "/recruit"],
           ].map(([number, label, href]) => (
             <a href={href} onClick={closeMenu} key={href}>
               <span>{number}</span><strong>{label}</strong><Arrow />
@@ -89,10 +89,14 @@ export default function Home() {
             <span className="line-mask"><b>感動を届ける。</b></span>
           </h1>
           <p className="hero-lead">
-            医療と介護の力で、
+            医療・介護を通じて、
             <br />
-            一人ひとりの「その人らしい毎日」を。
+            関わるすべての人に価値を届ける会社へ。
           </p>
+          <div className="hero-buttons">
+            <a href="/business">事業内容を見る <Arrow /></a>
+            <a href="/recruit">採用情報を見る <Arrow /></a>
+          </div>
         </div>
         <div className="hero-side">MAKE A HAPPY FUTURE WITH YOU</div>
         <a href="#vision" className="scroll">
@@ -108,21 +112,23 @@ export default function Home() {
         <div className="statement-inner reveal">
           <p className="section-label"><span>01</span> OUR VISION</p>
           <div>
-            <h2>人の想いが、<br />地域の幸せをつくる。</h2>
+            <h2>関わるすべての人に、<br />感動を届ける。</h2>
             <p className="statement-lead">
-              私たちHPHは、人と人とのつながりを大切にする
-              <strong>ヘルスケアカンパニー</strong>です。
+              HPHは、多くの人との繋がりの中で成り立っています。
             </p>
             <p>
-              思いやりを持って一人ひとりに向き合い、情熱を持ってより良い支援を追求する。
-              医療・介護を通じて、ご利用者さま、ご家族、地域、そして働く仲間の幸福を育みます。
+              利用者様、ご家族、地域の皆様、スタッフ、関係者の皆様。
+              すべての出会いや支えに感謝し、期待を超える価値を届けることで「感動」を生み出す。
+              それがHPHの大切にしている考え方です。
             </p>
+            <a className="text-link" href="/about">HPHの理念を見る <Arrow /></a>
           </div>
         </div>
         <div className="values reveal">
-          <article><strong>H</strong><div><span>HUMANITY</span><h3>人情</h3><p>温かな心で、人に寄り添う。</p></div></article>
-          <article><strong>P</strong><div><span>PASSION</span><h3>情熱</h3><p>より良い未来へ、挑み続ける。</p></div></article>
-          <article><strong>H</strong><div><span>HAPPINESS</span><h3>幸福</h3><p>関わるすべての人を、笑顔に。</p></div></article>
+          <article><strong>感</strong><div><span>GRATITUDE</span><h3>感謝</h3><p>人との繋がりへの感謝を忘れない。</p></div></article>
+          <article><strong>誇</strong><div><span>PROFESSIONAL</span><h3>プロ意識</h3><p>誇りと責任を持って仕事に向き合う。</p></div></article>
+          <article><strong>解</strong><div><span>SOLUTION</span><h3>課題解決</h3><p>目の前の課題をより良くする。</p></div></article>
+          <article><strong>挑</strong><div><span>CHALLENGE</span><h3>挑戦</h3><p>価値提供のために挑戦し続ける。</p></div></article>
         </div>
       </section>
 
@@ -130,7 +136,7 @@ export default function Home() {
         <div className="business-heading reveal">
           <p className="section-label light"><span>02</span> OUR BUSINESS</p>
           <h2>暮らしのそばで、<br />健康と安心を支える。</h2>
-          <p>神戸市垂水区を拠点に、2つの事業を展開しています。</p>
+          <p>現在の事業を基盤に、地域医療介護企業としての未来を目指します。</p>
         </div>
         <article className="business-card business-card-photo reveal">
           <div className="business-photo">
@@ -161,6 +167,7 @@ export default function Home() {
             <i /><i /><i />
           </div>
         </article>
+        <a className="business-more reveal" href="/business">事業内容を詳しく見る <Arrow /></a>
       </section>
 
       <section className="recruit" id="recruit">
@@ -171,11 +178,11 @@ export default function Home() {
           <p className="section-label"><span>03</span> RECRUIT</p>
           <h2>「ありがとう」が、<br />次の力になる。</h2>
           <p>
-            技術や経験だけではなく、目の前の人を大切にできる気持ちを歓迎します。
-            HPHで、地域の未来を支える仲間になりませんか。
+            技術や経験だけではなく、人を想う姿勢や成長する意欲を大切にしています。
+            一人ひとりの成長が組織の力となり、その力が地域への価値提供につながります。
           </p>
-          <a className="round-link" href="tel:0787548576">
-            <span>採用について<br />問い合わせる</span><Arrow />
+          <a className="round-link" href="/recruit">
+            <span>採用情報を<br />詳しく見る</span><Arrow />
           </a>
         </div>
         <div className="recruit-bg-text" aria-hidden="true">WORK WITH HPH</div>
@@ -205,9 +212,10 @@ export default function Home() {
         <div className="footer-logo"><img src="/hph-logo.jpg" alt="株式会社HPH" /></div>
         <p>〒655-0012 兵庫県神戸市垂水区向陽2丁目6-18<br />向陽センタービル103</p>
         <div className="footer-links">
-          <a href="#vision">私たちについて</a>
-          <a href="#business">事業紹介</a>
-          <a href="#recruit">採用情報</a>
+          <a href="/about">私たちについて</a>
+          <a href="/business">事業紹介</a>
+          <a href="/culture">HPHの文化</a>
+          <a href="/recruit">採用情報</a>
           <a href="#company">会社概要</a>
         </div>
         <div className="footer-bottom">
