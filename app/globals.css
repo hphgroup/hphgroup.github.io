@@ -168,8 +168,8 @@ button { font: inherit; }
 .recruit-image img { height:100%; object-fit:cover; object-position:48% center; filter:brightness(1.12) saturate(.88) contrast(.94); transition:transform 1.2s; }
 .recruit-image:hover img { transform:scale(1.04); }
 .recruit-copy { padding:0 5vw; position:relative; z-index:2; }
-.recruit-title-first { position:relative; }
-.recruit-title-first::before { content:"「"; position:absolute; right:100%; }
+.recruit-title > span { display:block; }
+.recruit-title-first { text-indent:-.5em; }
 .recruit-copy > p:not(.section-label) { color:var(--gray); max-width:540px; }
 .round-link { margin-top:25px; width:160px; height:160px; border-radius:50%; display:flex; align-items:center; justify-content:center; gap:12px; background:var(--red); color:white; font-size:12px; font-weight:800; transition:transform .4s, background .3s; }
 .round-link:hover { transform:rotate(-6deg) scale(1.04); background:var(--deep); }
@@ -461,7 +461,7 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
   .recruit-copy.reveal.is-visible > :nth-child(2) { animation-delay:.1s; }
   .recruit-copy.reveal.is-visible > :nth-child(3) { animation-delay:.2s; }
   .recruit-copy.reveal.is-visible > :nth-child(4) { animation-delay:.3s; }
-  .round-link { animation:mobileButtonOrbit 3s ease-in-out infinite; }
+  .round-link { animation:mobileButtonOrbit 1.6s ease-in-out infinite; }
   .recruit-bg-text { animation:mobileRecruitMarquee 10s linear infinite; }
   .company dl.reveal.is-visible > div { animation:mobileRowEnter .55s cubic-bezier(.22,1,.36,1) both; }
   .company dl.reveal.is-visible > div:nth-child(2) { animation-delay:.08s; }
@@ -522,6 +522,7 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior:auto; }
   .hero-image img { animation-duration:11s !important; }
-  .shape-a, .shape-b, .marquee div, .round-link, .recruit-bg-text { animation-duration:14s !important; }
+  .shape-a, .shape-b, .marquee div, .recruit-bg-text { animation-duration:14s !important; }
+  .round-link { animation-duration:1.6s !important; }
   .reveal { transition-duration:.55s; }
 }
