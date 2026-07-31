@@ -142,7 +142,7 @@ export default function Home() {
           onTouchEnd={(event) => endHeroSwipe(event.changedTouches[0]?.clientX ?? 0)}
         >
           {heroSlides.map((slide, index) => (
-            <article className={`hero-slide ${activeHero === index ? "is-active" : ""}`} key={slide.image}>
+            <article className={`hero-slide ${index === 2 ? "hero-slide-recruit" : ""} ${activeHero === index ? "is-active" : ""}`} key={slide.image}>
               <div className="hero-image">
                 <img src={slide.image} alt={slide.alt} />
               </div>
