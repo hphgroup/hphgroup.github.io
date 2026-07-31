@@ -332,8 +332,27 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
 
 @media (max-width: 520px) {
   .hero-image { inset:150px 16px 90px 27vw; border-radius:0 0 50px 0; }
-  .hero h1 { font-size:12vw; }
+  .hero-copy { right:18px; }
+  .hero h1 { font-size:clamp(40px,11.4vw,45px); line-height:1.12; letter-spacing:-.06em; }
+  .hero h1 .line-mask { white-space:nowrap; }
   .hero-lead { font-size:12px; }
+  .statement h2, .business h2, .recruit h2, .company h2 {
+    font-size:32px;
+    line-height:1.42;
+    letter-spacing:-.045em;
+    text-wrap:balance;
+  }
+  .contact h2 { font-size:28px; line-height:1.45; text-wrap:balance; }
+  .business-copy h3, .service-detail h2 { font-size:31px; line-height:1.35; }
+  .sub-hero h1 { font-size:40px; line-height:1.28; letter-spacing:-.05em; text-wrap:balance; }
+  .sub-intro h2, .value-detail > h2, .people > h2, .future > h2,
+  .mv-grid h2, .recruit-message h2, .sub-cta h2 {
+    font-size:31px;
+    line-height:1.45;
+    letter-spacing:-.035em;
+    text-wrap:balance;
+  }
+  .culture-photo p { font-size:18px; line-height:1.5; right:18px; }
   .business-photo { height:300px; }
   .recruit-image { height:360px; }
   .company dl > div { grid-template-columns:1fr; gap:7px; }
