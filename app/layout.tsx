@@ -7,7 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const baseUrl = new URL(`${protocol}://${host}`);
-  const title = "株式会社HPH｜神戸市の訪問鍼灸マッサージ・デイサービス・生活サポート";
+  const title = "株式会社HPH 公式サイト｜神戸市の医療・介護・生活支援";
   const description =
     "感謝を込めて感動を届ける。株式会社HPHは、神戸市で訪問鍼灸マッサージ事業、デイサービス事業、保険外の生活サポート事業を展開しています。採用情報も掲載しています。";
 
@@ -15,6 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: baseUrl,
     title,
     description,
+    applicationName: "株式会社HPH 公式サイト",
     icons: {
       icon: "/hph-logo-transparent.png",
       shortcut: "/hph-logo-transparent.png",
@@ -22,6 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description,
+      siteName: "株式会社HPH 公式サイト",
       type: "website",
       locale: "ja_JP",
       images: [{ url: new URL("/og-v2.png", baseUrl).toString(), width: 1200, height: 630, alt: "株式会社HPH 感謝を込めて、感動を届ける。" }],
