@@ -168,6 +168,8 @@ button { font: inherit; }
 .recruit-image img { height:100%; object-fit:cover; object-position:48% center; filter:brightness(1.12) saturate(.88) contrast(.94); transition:transform 1.2s; }
 .recruit-image:hover img { transform:scale(1.04); }
 .recruit-copy { padding:0 5vw; position:relative; z-index:2; }
+.recruit-title-first { position:relative; }
+.recruit-title-first::before { content:"「"; position:absolute; right:100%; }
 .recruit-copy > p:not(.section-label) { color:var(--gray); max-width:540px; }
 .round-link { margin-top:25px; width:160px; height:160px; border-radius:50%; display:flex; align-items:center; justify-content:center; gap:12px; background:var(--red); color:white; font-size:12px; font-weight:800; transition:transform .4s, background .3s; }
 .round-link:hover { transform:rotate(-6deg) scale(1.04); background:var(--deep); }

@@ -206,7 +206,7 @@ export default function Home() {
         </div>
         <div className="recruit-copy reveal">
           <p className="section-label"><span>03</span> RECRUIT</p>
-          <h2>「ありがとう」が、<br />次の力になる。</h2>
+          <h2><span className="recruit-title-first">ありがとう」が、</span><br />次の力になる。</h2>
           <p>
             技術や経験だけではなく、人を想う姿勢や成長する意欲を大切にしています。
             一人ひとりの成長が組織の力となり、その力が地域への価値提供につながります。
