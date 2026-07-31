@@ -40,7 +40,7 @@ button { font: inherit; }
   backdrop-filter: blur(14px);
 }
 .brand { width: 174px; height: 67px; overflow: hidden; display: flex; align-items: center; z-index: 2; }
-.brand img { transform: scale(1.13); }
+.brand img { transform: scale(1.13); mix-blend-mode:multiply; }
 .desktop-nav { margin-left: auto; display: flex; gap: clamp(20px, 2.5vw, 44px); margin-right: 35px; }
 .desktop-nav a { font-size: 12px; font-weight: 800; letter-spacing: .04em; position: relative; }
 .desktop-nav a::after { content: ""; position: absolute; height: 2px; background: var(--red); left: 0; right: 100%; bottom: -7px; transition: right .3s; }
@@ -191,7 +191,7 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
 .subpage { background:white; }
 .sub-header { height:82px; display:flex; align-items:center; padding:0 5vw; position:relative; z-index:10; border-bottom:1px solid #eee; }
 .sub-brand { width:155px; height:62px; overflow:hidden; display:flex; align-items:center; }
-.sub-brand img { transform:scale(1.12); }
+.sub-brand img { transform:scale(1.12); mix-blend-mode:multiply; }
 .sub-header nav { margin-left:auto; display:flex; gap:30px; }
 .sub-header nav a { font-size:11px; font-weight:800; }
 .sub-contact { margin-left:30px; background:var(--red); color:white; height:82px; padding:0 25px; display:flex; align-items:center; font:800 10px Arial; letter-spacing:.16em; }
@@ -331,11 +331,30 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
 }
 
 @media (max-width: 520px) {
-  .hero-image { inset:150px 16px 90px 27vw; border-radius:0 0 50px 0; }
-  .hero-copy { right:18px; }
-  .hero h1 { font-size:clamp(40px,11.4vw,45px); line-height:1.12; letter-spacing:-.06em; }
+  .hero { height:780px; min-height:780px; }
+  .hero-image {
+    inset:auto 18px auto 18px;
+    top:158px;
+    height:340px;
+    border-radius:0 0 50px 0;
+  }
+  .hero-image::after { background:linear-gradient(90deg,rgba(255,255,255,.24),transparent 38%); }
+  .hero-image img { object-position:50% 44%; }
+  .hero-copy { left:24px; right:18px; top:255px; transform:none; }
+  .hero h1 { font-size:clamp(39px,11vw,43px); line-height:1.12; letter-spacing:-.06em; margin:18px 0 24px; }
   .hero h1 .line-mask { white-space:nowrap; }
+  .hero h1 .line-mask b {
+    width:max-content;
+    padding:1px .1em 3px;
+    background:rgba(255,255,255,.86);
+    box-shadow:8px 0 0 rgba(255,255,255,.86), -3px 0 0 rgba(255,255,255,.86);
+  }
+  .hero h1 .line-mask + .line-mask { margin-top:4px; }
   .hero-lead { font-size:12px; }
+  .hero-buttons { margin-top:18px; }
+  .hero-buttons a { padding:13px 14px; gap:12px; }
+  .hero-side { top:38%; }
+  .scroll { bottom:18px; }
   .statement h2, .business h2, .recruit h2, .company h2 {
     font-size:32px;
     line-height:1.42;
