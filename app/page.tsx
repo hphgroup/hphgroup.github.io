@@ -268,7 +268,7 @@ export default function Home() {
         </article>
         <article className="business-card business-card-photo support-card reveal">
           <div className="business-photo">
-            <img src="/hph-support.jpg" alt="利用者様の暮らしに寄り添うHPHスタッフ" />
+            <img src="/life-support.png" alt="車椅子を押しながら外出に付き添う生活サポートスタッフ" />
           </div>
           <div className="business-copy">
             <span className="business-number">03</span>
