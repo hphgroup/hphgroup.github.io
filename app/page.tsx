@@ -225,13 +225,18 @@ export default function Home() {
         <div className="company-title reveal">
           <p className="section-label"><span>04</span> COMPANY</p>
           <h2>会社概要</h2>
-          <div className="company-mark">HPH</div>
         </div>
         <dl className="reveal">
           <div><dt>会社名</dt><dd>株式会社HPH</dd></div>
           <div><dt>事業内容</dt><dd>訪問鍼灸マッサージ事業<br />デイサービス事業</dd></div>
           <div><dt>所在地</dt><dd>〒655-0012<br />兵庫県神戸市垂水区向陽2丁目6-18<br />向陽センタービル103</dd></div>
-          <div><dt>連絡先</dt><dd className="company-contact">TEL：<a href="tel:0787548576">078-754-8576</a><br />FAX：<span>078-754-8580</span></dd></div>
+          <div>
+            <dt>連絡先</dt>
+            <dd className="company-contact">
+              TEL：<a href="tel:0787548576">078-754-8576</a><br />
+              FAX：<span className="fax-number"><span>078</span><i>-</i><span>754</span><i>-</i><span>8580</span></span>
+            </dd>
+          </div>
         </dl>
       </section>
 

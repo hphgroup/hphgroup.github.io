@@ -177,13 +177,14 @@ button { font: inherit; }
 .recruit-bg-text { position:absolute; bottom:-20px; left:-5px; font:900 clamp(85px,15vw,220px)/1 Arial; color:white; white-space:nowrap; z-index:0; letter-spacing:-.07em; }
 .company { padding:140px 7vw; display:grid; grid-template-columns:.8fr 1.2fr; gap:10vw; max-width:1400px; margin:auto; }
 .company-title { position:relative; }
-.company-mark { font:900 150px/1 Arial; color:var(--rose); position:absolute; left:-20px; top:170px; z-index:-1; }
 .company dl { margin:0; border-top:1px solid #ddd; }
 .company dl > div { display:grid; grid-template-columns:145px 1fr; padding:23px 0; border-bottom:1px solid #ddd; }
 .company dt { font-size:12px; color:var(--gray); }
 .company dd { margin:0; font-weight:600; }
 .company dd a { color:var(--red); }
-.company-contact a, .company-contact span { color:var(--red); text-decoration:none !important; border:0 !important; }
+.company-contact a, .company-contact span { color:var(--red); text-decoration:none !important; text-decoration-line:none !important; text-decoration-color:transparent !important; border:0 !important; }
+.fax-number, .fax-number * { text-decoration:none !important; text-decoration-line:none !important; border-bottom:0 !important; }
+.fax-number i { color:var(--red); font-style:normal; }
 a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; border-bottom:0 !important; }
 .contact { background:var(--red); color:white; padding:100px 7vw; display:grid; grid-template-columns:.3fr 1fr; align-items:center; gap:6vw; position:relative; overflow:hidden; }
 .contact::after { content:""; position:absolute; width:380px; height:380px; border:1px solid rgba(255,255,255,.2); border-radius:50%; right:-90px; top:-120px; }
@@ -355,7 +356,6 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
   .recruit-image { height:440px; }
   .recruit-copy { padding:0; }
   .company { padding:100px 24px; grid-template-columns:1fr; gap:60px; }
-  .company-mark { top:80px; }
   .contact { grid-template-columns:1fr; padding:75px 24px; gap:20px; }
   .contact-actions { grid-column:1; margin:0; gap:14px; }
   footer { grid-template-columns:1fr; padding:50px 24px 20px; }
