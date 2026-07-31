@@ -359,7 +359,7 @@ footer > p { font-size:11px; color:var(--gray); margin:0; }
   .values h3 { font-size:22px; margin-bottom:9px; letter-spacing:0; font-weight:900; }
   .values p:not(.value-accent) { display:none; }
   .values .value-accent { margin-top:0; padding:9px 8px; border-radius:8px; font-size:10px; line-height:1.55; }
-  .hero { height:700px; min-height:700px; }
+  .hero { height:610px; min-height:610px; }
   .hero-image {
     inset:auto 18px auto 18px;
     top:136px;
