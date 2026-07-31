@@ -19,7 +19,7 @@ export default function SubPageShell({ number, english, title, lead, children }:
           <a href="/culture">HPHの文化</a>
           <a href="/recruit">採用情報</a>
         </nav>
-        <a className="sub-contact" href="tel:0787548576">CONTACT</a>
+        <a className="sub-contact" href="/contact">CONTACT</a>
       </header>
       <section className="sub-hero">
         <p><span>{number}</span> {english}</p>
@@ -33,7 +33,7 @@ export default function SubPageShell({ number, english, title, lead, children }:
         <h2>共に、地域へ価値を。</h2>
         <div>
           <a href="/recruit">採用情報を見る <span>↗</span></a>
-          <a href="tel:0787548576">お問い合わせ <span>↗</span></a>
+          <a href="/contact">お問い合わせ <span>↗</span></a>
         </div>
       </section>
       <footer className="sub-footer">

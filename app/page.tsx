@@ -72,6 +72,7 @@ export default function Home() {
             ["02", "事業紹介", "/business"],
             ["03", "HPHの文化", "/culture"],
             ["04", "採用情報", "/recruit"],
+            ["05", "お問い合わせ", "/contact"],
           ].map(([number, label, href]) => (
             <a href={href} onClick={closeMenu} key={href}>
               <span>{number}</span><strong>{label}</strong><Arrow />
@@ -227,14 +228,17 @@ export default function Home() {
           <div><dt>会社名</dt><dd>株式会社HPH</dd></div>
           <div><dt>事業内容</dt><dd>訪問鍼灸マッサージ事業<br />デイサービス事業</dd></div>
           <div><dt>所在地</dt><dd>〒655-0012<br />兵庫県神戸市垂水区向陽2丁目6-18<br />向陽センタービル103</dd></div>
-          <div><dt>連絡先</dt><dd>TEL：<a href="tel:0787548576">078-754-8576</a><br />FAX：078-754-8580</dd></div>
+          <div><dt>連絡先</dt><dd className="company-contact">TEL：<a href="tel:0787548576">078-754-8576</a><br />FAX：<span>078-754-8580</span></dd></div>
         </dl>
       </section>
 
       <section className="contact">
         <p>CONTACT US</p>
         <h2>ご相談・採用について、<br />お気軽にお問い合わせください。</h2>
-        <a href="tel:0787548576"><span>078-754-8576</span><Arrow /></a>
+        <div className="contact-actions">
+          <a href="tel:0787548576"><span>078-754-8576</span><Arrow /></a>
+          <a className="contact-form-link" href="/contact">お問い合わせフォーム <Arrow /></a>
+        </div>
       </section>
 
       <footer>
